@@ -9,7 +9,6 @@ import {
   CardDescription,
 } from "@/components/ui/card";
 import { Input } from "@/components/ui/input";
-import { Separator } from "@/components/ui/separator";
 import { FaGithub } from "react-icons/fa";
 import { FcGoogle } from "react-icons/fc";
 import { useState } from "react";
@@ -46,7 +45,8 @@ const SignIn = () => {
         toast.success("Signed in successfully!");
         router.push("/");
       }
-    } catch (error) {
+    } catch (err) {
+      console.error("Sign in error:", err);
       setError("An unexpected error occurred");
       setPending(false);
       toast.error("An unexpected error occurred");
@@ -129,7 +129,7 @@ const SignIn = () => {
           </div>
 
           <p className="text-center text-xs text-gray-600 mt-4">
-            Don't have an account?{" "}
+            Don&apos;t have an account?{" "}
             <Link
               href="/sign-up"
               className="text-indigo-600 font-medium hover:underline"

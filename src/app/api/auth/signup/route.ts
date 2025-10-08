@@ -40,8 +40,8 @@ export async function POST(request: Request) {
       { message: "User created successfully", userId: newUser._id },
       { status: 201 }
     );
-  } catch (error: any) {
-    console.error(error);
+  } catch (error) {
+    console.error("Signup error:", error);
     return NextResponse.json(
       { message: "Internal Server Error" },
       { status: 500 }
